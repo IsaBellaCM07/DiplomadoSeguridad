@@ -77,6 +77,17 @@ public class PublicKeyCipher {
         return output;
     }
 
+    public byte[] encryptByteArray(byte[] input, Key key) throws
+            InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+        cipher.init(Cipher.ENCRYPT_MODE, key);
+        return cipher.doFinal(input);
+    }
+
+    public byte[] decryptByteArray(byte[] input, Key key) throws
+            InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+        cipher.init(Cipher.DECRYPT_MODE, key);
+        return cipher.doFinal(input);
+    }
 
 
 
